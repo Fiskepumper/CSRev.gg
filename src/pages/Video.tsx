@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './video.css';
+import './Video.css';
 
 const Video: React.FC = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
