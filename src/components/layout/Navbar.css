@@ -1,0 +1,624 @@
+/* Navbar base styling - transparent når på topp */
+.custom-navbar-bg {
+  background: rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+/* Navbar når man scroller - blurred og gjennomsiktig */
+.custom-navbar-bg.scrolled {
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(15px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Header layout - sticky positioning */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: relative;
+}
+
+.navbar-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.navbar-nav-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+  margin-left: auto; /* Push alt til høyre */
+}
+
+.navbar-nav-mobile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Hamburger Section - inne i nav som siste element */
+.navbar-hamburger-section {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 100;
+  margin-left: 0.5rem; /* Litt gap fra forrige element */
+}
+
+/* Show on desktop */
+@media (min-width: 768px) {
+  .navbar-nav-desktop {
+    display: flex;
+  }
+  .navbar-nav-mobile {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .navbar-nav-desktop {
+    display: none;
+  }
+  .navbar-nav-mobile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* Logo styling */
+.navbar-logo {
+  height: 2.5rem;
+  width: auto;
+  max-width: 180px;
+}
+
+.navbar-title {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #0400ff, #00ff95);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Navigation links */
+.navbar-link {
+  color: #e5e7eb !important;
+  font-weight: 500;
+  transition: color 0.2s;
+  text-decoration: none;
+  padding: 0.5rem 0;
+}
+
+.navbar-link:hover {
+  color: #818cf8 !important;
+}
+
+/* Steam login button - tilbake til original */
+.navbar-steam-login {
+  background: #2563eb;
+  color: #fff !important;
+  font-weight: 500; /* Redusert fra 700 */
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.875rem; /* 14px - samme som Connect Wallet */
+  font-family: inherit; /* Samme font som resten */
+}
+
+/* Glow effect når market trenger Steam login */
+.market-needs-steam .navbar-steam-login {
+  background: #2563eb;
+  box-shadow: 
+    0 0 20px rgba(37, 99, 235, 0.6),
+    0 0 40px rgba(37, 99, 235, 0.4),
+    0 0 60px rgba(37, 99, 235, 0.2);
+  animation: steamGlow 2s ease-in-out infinite alternate;
+}
+
+.market-needs-steam .navbar-steam-login:hover {
+  background: #1d4ed8;
+  box-shadow: 
+    0 0 25px rgba(29, 78, 216, 0.8),
+    0 0 50px rgba(29, 78, 216, 0.6),
+    0 0 75px rgba(29, 78, 216, 0.4);
+}
+
+@keyframes steamGlow {
+  0% {
+    box-shadow: 
+      0 0 20px rgba(37, 99, 235, 0.6),
+      0 0 40px rgba(37, 99, 235, 0.4),
+      0 0 60px rgba(37, 99, 235, 0.2);
+  }
+  100% {
+    box-shadow: 
+      0 0 25px rgba(37, 99, 235, 0.8),
+      0 0 50px rgba(37, 99, 235, 0.6),
+      0 0 75px rgba(37, 99, 235, 0.4);
+  }
+}
+
+/* Dark mode toggle button */
+.navbar-darkmode-btn {
+  padding: 0.5rem;
+  border-radius: 50%;
+  background: transparent;
+  color: #e5e7eb !important;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-darkmode-btn:hover {
+  background: #334155;
+}
+
+/* Mobile menu button */
+.navbar-mobile-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background: transparent;
+  color: #e5e7eb !important;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.navbar-mobile-btn:hover {
+  background: #334155;
+}
+
+/* Avatar styling */
+.navbar-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  transition: box-shadow 0.2s;
+}
+
+.navbar-avatar:hover {
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+/* Mobile menu dropdown */
+.navbar-mobile-menu {
+  background: rgba(15, 23, 42, 0.98);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 40;
+}
+
+.navbar-mobile-links {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Profile dropdown menu styling */
+.navbar-profile-menu {
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-profile-menu a {
+  color: #ffffff !important;
+}
+
+.navbar-profile-menu a:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #3b82f6 !important;
+}
+
+/* Wallet connected section */
+.wallet-connected-section {
+  position: relative;
+  display: inline-block;
+}
+
+/* Wallet connected state */
+.navbar-wallet-connected {
+  background: #10b981;
+  color: #fff !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.navbar-wallet-connected:hover {
+  background: #059669;
+}
+
+/* User dropdown menu */
+.wallet-user-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  min-width: 150px;
+  z-index: 50;
+  margin-top: 0.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #ffffff !important;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.wallet-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.wallet-menu-item.logout {
+  color: #ef4444 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.wallet-menu-item.logout:hover {
+  background: rgba(239, 68, 68, 0.1);
+}
+
+/* Connect wallet section */
+.connect-wallet-section {
+  position: relative;
+  display: inline-block;
+}
+
+/* Connect wallet button styling */
+.connect-wallet-btn {
+  background: #059669;
+  color: #fff !important;
+  font-weight: 500; /* Samme som Steam button */
+  padding: 0.5rem 1rem; /* Samme padding */
+  border-radius: 0.375rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem; /* 14px */
+  font-family: inherit; /* Samme font som resten */
+}
+
+.connect-wallet-btn:hover {
+  background: #047857;
+  color: #fff !important;
+}
+
+.connect-wallet-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Wallet selection dropdown */
+.wallet-select-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  z-index: 50;
+  margin-top: 0.5rem;
+  min-width: 200px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.wallet-select-title {
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+.wallet-select-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wallet-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  color: #ffffff !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.875rem;
+}
+
+.wallet-option-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #059669;
+}
+
+.wallet-option-logo {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Hamburger Menu Section */
+.hamburger-menu-section {
+  position: relative;
+  display: inline-block;
+  margin-left: 1rem;
+  z-index: 100; /* Høy z-index */
+}
+
+/* Hamburger Menu Button */
+.hamburger-menu-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hamburger Lines */
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 20px;
+  height: 16px;
+}
+
+.hamburger-lines span {
+  width: 100%;
+  height: 2px;
+  background: #e5e7eb;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+/* Hamburger Dropdown - med kraftig blur bak */
+.hamburger-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(0, 0, 0, 0.85); /* Litt mindre opacity for å se blur bedre */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  min-width: 280px;
+  max-width: 320px;
+  z-index: 9999;
+  backdrop-filter: blur(20px) saturate(180%); /* Kraftig blur */
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset; /* Inner border for glassmorphism */
+  padding: 1.5rem;
+  transform: translateZ(0);
+  max-height: 70vh;
+  overflow-y: auto;
+  animation: slideDown 0.3s ease;
+}
+
+/* Glassmorphism effect - ekstra blur layer */
+.hamburger-dropdown::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: -1;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Forbedret section styling for glassmorphism */
+.hamburger-section {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.hamburger-section:last-child {
+  margin-bottom: 0;
+}
+
+.hamburger-section-title {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit; /* Samme font som resten */
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Forbedret link styling */
+.hamburger-link {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  color: #f1f5f9 !important;
+  text-decoration: none;
+  font-size: 0.875rem; /* Konsistent størrelse */
+  font-weight: 500; /* Konsistent weight */
+  font-family: inherit; /* Samme font som resten */
+  transition: all 0.2s ease;
+  border-radius: 0.5rem;
+  margin: 0.125rem 0;
+  border-left: 3px solid transparent;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hamburger-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff !important;
+  border-left-color: #3b82f6;
+  transform: translateX(4px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hamburger button active state */
+.hamburger-menu-btn.active .hamburger-lines span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu-btn.active .hamburger-lines span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu-btn.active .hamburger-lines span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Debug styling - legg til midlertidig for å se om dropdown vises */
+/* .hamburger-dropdown {
+  /* ...existing styles... */
+  border: 2px solid red !important; /* MIDLERTIDIG - for å se dropdown */
+  background: rgba(255, 0, 0, 0.2) !important; /* MIDLERTIDIG */
+} */
+
+/* Click outside to close wallet and user menu */
+.useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
+      setShowWalletSelect(false); // <-- Lukker boksen
+      setShowUserMenu(false);
+    }
+  };
+
+  document.addEventListener('mousedown', handleClickOutside);
+  return () => {
+    document.removeEventListener('mousedown', handleClickOutside);
+  };
+}, []);
+
+/* Override touch targets for navbar buttons - gjør dem smalere */
+nav .navbar-steam-login,
+nav .connect-wallet-btn,
+nav a[href*="steam"],
+nav button[class*="connect"] {
+  min-height: auto !important; /* Fjern forced min-height */
+  padding: 0.375rem 0.75rem !important; /* Mindre padding = smalere høyde */
+  font-size: 0.875rem !important; /* 14px */
+  font-weight: 500 !important;
+  line-height: 1.2 !important; /* Tettere linjehøyde */
+}
+
+/* Spesifikt for Steam login knapp */
+.navbar-steam-login {
+  background: #2563eb !important;
+  color: #fff !important;
+  border-radius: 0.375rem !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  display: inline-block !important;
+  min-height: auto !important;
+  padding: 0.375rem 0.75rem !important;
+}
+
+/* Spesifikt for Connect Wallet knapp */
+.connect-wallet-btn {
+  background: #059669 !important;
+  color: #fff !important;
+  border-radius: 0.375rem !important;
+  border: none !important;
+  cursor: pointer !important;
+  min-height: auto !important;
+  padding: 0.375rem 0.75rem !important;
+}
+
+/* Hover states for knappene */
+nav .navbar-steam-login:hover {
+  background: #1d4ed8 !important;
+  color: #fff !important;
+}
+
+nav .connect-wallet-btn:hover {
+  background: #047857 !important;
+  color: #fff !important;
+}

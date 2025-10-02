@@ -1,0 +1,106 @@
+/* FAQ egen bakgrunn */
+.faq-bg {
+  margin-top: 0;
+  padding-top: 0;
+  background: #0f172a;
+  min-height: 100vh;
+}
+
+body.light .faq-bg,
+html.light .faq-bg {
+  background: #fff;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem 1rem; /* Ekstra bunn-padding for footer */
+  margin-top: 5rem;
+  background: #16213a;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.10);
+  color: #fff;
+}
+
+body.light .faq-container,
+html.light .faq-container {
+  background: #fff;
+  color: #222;
+}
+
+.faq-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #a5b4fc;
+}
+
+body.light .faq-title,
+html.light .faq-title {
+  color: #3b3b7a;
+}
+
+.faq-section {
+  margin-bottom: 2.5rem;
+}
+
+.faq-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  color: #a5b4fc;
+}
+
+body.light .faq-section-title,
+html.light .faq-section-title {
+  color: #3b3b7a;
+}
+
+.faq-list {
+  margin-left: 1.5rem;
+  margin-bottom: 0.7rem;
+}
+
+.faq-contact {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+  color: #a5b4fc;
+}
+
+body.light .faq-contact,
+html.light .faq-contact {
+  color: #3b3b7a;
+}
+
+.faq-contact a {
+  color: #818cf8;
+  text-decoration: underline;
+}
+
+body.light .faq-contact a,
+html.light .faq-contact a {
+  color: #3b3b7a;
+}
+
+.faq-scroll-box {
+  overflow-y: auto;
+  max-height: 400px;
+  background: rgba(30, 41, 59, 0.10);
+  border-radius: 1rem;
+  padding: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: #444a #222a;
+}
+
+.faq-scroll-box::-webkit-scrollbar {
+  width: 6px;
+  background: transparent;
+}
+.faq-scroll-box::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 6px;
+}
+.faq-scroll-box::-webkit-scrollbar-thumb:hover {
+  background: rgba(231, 0, 0, 0.932);
+}
+

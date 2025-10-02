@@ -1,0 +1,261 @@
+.logo-row {
+  /* Rader knivene og logoen horisontalt, med stor avstand mellom knivene */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25vw; /* Stor avstand mellom knivene */
+  margin-bottom: 1rem;
+  margin-top: -3cm; /* Flytter hele gruppen 2 cm oppover */
+  position: relative; /* Gjør det mulig å posisjonere logoen absolutt */
+  height: 700px; /* Høyden på raden (påvirker hvor stor logoen kan være) */
+}
+
+/* Bruk original størrelse på knivene */
+.karambit {
+  display: block;
+}
+
+.karambit-left,
+.karambit-right {
+  margin-top: 420px; /* Juster denne verdien etter ønsket avstand */
+}
+
+/* Sentrerer og gjør hovedinnholdet større, uten boksfølelse */
+.comingsoon-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+}
+
+/* Gjør logoen stor og sentrert over knivene */
+.comingsoon-logo-large {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 420px; /* Maks bredde på logoen */
+  width: 60vw;      /* Logoen tar opptil 60% av vinduets bredde */
+  z-index: ;        /* (Ingen verdi satt, så ingen effekt) */
+  pointer-events: none; /* Logoen blokkerer ikke klikk på elementer under */
+}
+
+/* Stor og sentrert Coming Soon-tekst */
+.comingsoon-title {
+  font-size: 4.5rem;
+  color: #031faa;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-shadow: 0 0 32px #131381;
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  height: 1200px; /* Gir mye vertikal plass (kan gi mye scroll) */
+}
+
+/* Gjør explained-bildet stort og sentrert */
+.explained {
+  margin-top: -1cm; /* Flytter bildet 5 cm oppover */
+  z-index: -1; /* Sender bildet bak karambit knivene */
+  position: relative; /* Nødvendig for z-index å fungere */
+  width: 100%;
+  max-width: 1200px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 32px 0 #13138100;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Stil for scroll-knappen */
+.scroll-down-btn {
+  margin-top: 7rem;
+  margin-bottom: 0.5rem;
+  align-self: center;
+  padding: 0.7rem 1.5rem;
+  background: #000000;
+  color: #e0e0e0a9;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 2px 16px 0 #0000ff;
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  transition: background 0.2s, color 0.2s;
+  position: relative;
+  z-index: 2;
+}
+.scroll-down-btn:hover {
+  background: #334155;
+  color: #fff;
+}
+
+/* Pil-animasjon på scroll-knappen */
+.arrow {
+  font-size: 1.5em;
+  animation: arrowBounce 1.2s infinite;
+}
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(8px);}
+}
+
+/* Autoshow-animasjon for elementer som popper inn */
+.autoshow {
+  opacity: 0;
+  transform: translateY(200px) scale(0.3);
+  transition: opacity 0.7s cubic-bezier(.4,1.4,.6,1), transform 0.7s cubic-bezier(.4,1.4,.6,1);
+  will-change: opacity, transform;
+}
+.autoshow-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Fjerner horisontal scroll hvis noe stikker ut */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Skjuler scrollbars, men lar deg fortsatt scrolle */
+html, body {
+  overflow-x: hidden;
+  /* Ikke bruk overflow-y: hidden! */
+  scrollbar-width: none;           /* Firefox */
+}
+body::-webkit-scrollbar {
+  display: none;                   /* Chrome, Safari, Edge */
+}
+
+/* Bakgrunn for hele Coming Soon-siden */
+.comingsoon-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #000000 0%, #000000 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.comingsoon-extra-section {
+  opacity: 1;
+  transform: scale(0.92);
+  transition: transform 0.7s cubic-bezier(.4,1.4,.6,1);
+  will-change: transform;
+  pointer-events: auto;   /* Endret fra none til auto */
+  user-select: auto;      /* Endret fra none til auto */
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 5rem auto 0 auto;
+  max-width: 900px;
+  width: 95vw;
+  text-align: left;
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  line-height: 1.7;
+}
+
+.comingsoon-extra-section.visible {
+  transform: scale(1);
+  pointer-events: auto;
+  user-select: auto;
+}
+
+.comingsoon-extra-section h1,
+.comingsoon-extra-section h2 {
+  color: #a5b4fc;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.comingsoon-extra-section h1 {
+  font-size: 2.5rem;
+}
+
+.comingsoon-extra-section h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.comingsoon-extra-section ul,
+.comingsoon-extra-section ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.comingsoon-extra-section li {
+  margin-bottom: 0.5rem;
+}
+
+.comingsoon-extra-section strong {
+  color: #fff;
+}
+
+.comingsoon-extra-section code {
+  background: #23263a;
+  color: #a5b4fc;
+  padding: 0.1em 0.4em;
+  border-radius: 0.3em;
+  font-size: 1em;
+}
+
+.autoShow {
+  animation: autoShowAnimation 0.7s cubic-bezier(.4,1.4,.6,1);
+  animation-timeline: view(0% auto); /* Starter animasjonen tidligere */
+  opacity: 0;
+  transform: translateX(120px) scale(1.15);
+  will-change: opacity, transform;
+}
+@keyframes autoShowAnimation {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Gjør teksten større */
+.comingsoon-howitworks-markdown {
+  font-size: 1.6rem;
+  padding-bot: 40vh; /* Gir mye plass over teksten */
+  
+}
+.comingsoon-howitworks-markdown h1 {
+  font-size: 3rem;
+}
+.comingsoon-howitworks-markdown h2 {
+  font-size: 2rem;
+}
+
+.comingsoon-howitworks-markdown h2 {
+  margin-top: 2.5rem;
+}
+
+.howitworks-title-color {
+  color: #2196f3; /* eller en annen blåfarge du ønsker */
+}
+
+/* Ny slide-animasjon for steg */
+.slide-step {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.slide-step.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}

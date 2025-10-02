@@ -1,0 +1,271 @@
+/* Inventory Grid */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .inventory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .inventory-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+/* Item Card */
+.item-card {
+  aspect-ratio: 1/1;
+  background: rgba(30, 41, 59, 0.7);
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: box-shadow 0.15s, border 0.15s, transform 0.15s;
+  border: 1.5px solid transparent;
+  padding: 6px 2px 2px 2px;
+}
+
+.item-card:hover {
+  border: 1.5px solid #3b82f6;
+  box-shadow: 0 0 0 2px #3b82f644;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* Item Image */
+.item-image {
+  width: 80%;
+  height: 60%;
+  object-fit: contain;
+  margin: 0 auto 2px auto;
+  display: block;
+}
+
+/* Item Name */
+.item-name {
+  font-size: 10px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #e5e7eb;
+  text-align: center;
+  margin: 0 0 2px 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Float Badge */
+.float-badge {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  font-size: 9px;
+  font-family: monospace;
+  padding: 1px 4px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+/* Count Badge */
+.count-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: #2563eb;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+/* Price Input */
+.item-card input[type="number"] {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  width: 60%;
+  font-size: 10px;
+  padding: 1px 2px;
+  border: 1px solid #374151;
+  border-radius: 4px;
+  background: #fff;
+  color: #111;
+  z-index: 2;
+  outline: none;
+  text-align: right;
+}
+
+/* Empty State */
+.empty-state {
+  grid-column: span 5;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 12px 0;
+}
+
+/* Glass Card Effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+}
+
+.glass-card-inner {
+  padding: 16px;
+}
+
+/* Profile Section */
+.profile-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.profile-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.profile-steamid {
+  color: #9ca3af;
+  margin: 0;
+}
+
+/* Search Input */
+.search-input {
+  max-width: 240px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  color: black;
+  position: relative;
+  z-index: 101;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .search-input {
+    background: #374151;
+    color: white;
+    border-color: #4b5563;
+  }
+  
+  .profile-steamid {
+    color: #9ca3af;
+  }
+}
+
+/* Layout */
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+@media (min-width: 1024px) {
+  .main-layout {
+    flex-direction: row;
+  }
+}
+
+.inventory-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  position: relative;
+  z-index: 100;
+}
+
+.inventory-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.inventory-title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+}
+
+.inventory-container {
+  position: relative;
+  flex: 1;
+}
+
+.inventory-scroll {
+  position: relative;
+  z-index: 102;
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.sell-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+@media (min-width: 1024px) {
+  .sell-section {
+    width: 256px;
+  }
+}
+
+/* Background Elements */
+.sell-page-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.background-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content-layer {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 32px 8px;
+}

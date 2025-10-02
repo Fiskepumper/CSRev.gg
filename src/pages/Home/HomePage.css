@@ -1,0 +1,257 @@
+.homepage-bg {
+  background: #000000;
+  width: 100%;
+  min-height: 100vh;
+  /* Safari iPhone fixes */
+  min-height: -webkit-fill-available;
+  position: relative;
+}
+
+/* Content styling */
+.homepage-content {
+  position: relative;
+  z-index: 2;
+  /* iPhone safe area padding */
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Global font consistency for homepage */
+.homepage-content,
+.homepage-content * {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* Global font setting */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif !important;
+  font-weight: 500;
+}
+
+/* Navigation hover - bedre touch for iPhone */
+nav a,
+nav button {
+  /* Større touch targets for iPhone */
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+nav a:hover,
+nav button:hover,
+nav a:active,
+nav button:active {
+  color: #3b82f6 !important;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-radius: 8px;
+}
+
+/* Footer dark theme - iPhone fixes */
+footer {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Safari fix */
+  border-top: 1px solid Srgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
+  /* iPhone safe area */
+  padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+}
+
+footer a,
+footer span,
+footer div {
+  color: #ffffff !important;
+}
+
+/* Reset og iPhone specifike fixes */
+* {
+  box-sizing: border-box;
+  /* Prevent zoom on input focus */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #000000 !important;
+  color: #ffffff !important;
+  /* iPhone scroll fixes */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: none;
+  /* Prevent pull-to-refresh */
+  overscroll-behavior-y: contain;
+}
+
+/* iPhone specific viewport fixes */
+html {
+  height: -webkit-fill-available;
+}
+
+/* Smooth scrolling for iPhone Safari */
+@supports (-webkit-touch-callout: none) {
+  .homepage-bg {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Dark mode for iPhone Safari */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* iPhone portrait/landscape responsive */
+@media screen and (max-width: 414px) {
+  .homepage-content {
+    padding: 1rem;
+  }
+  
+  nav a,
+  nav button {
+    font-size: 16px; /* Prevent zoom on focus */
+    min-height: 48px; /* Larger touch targets */
+  }
+}
+
+/* iPhone landscape mode */
+@media screen and (max-height: 414px) and (orientation: landscape) {
+  .homepage-bg {
+    min-height: 100vh;
+  }
+}
+
+/* Featured component responsive - iPhone specific */
+@media screen and (max-width: 414px) {
+  /* Featured grid - 1 kolonne på iPhone */
+  .featured-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
+  /* Skjul alt unntatt første featured item på iPhone */
+  .featured-grid > *:nth-child(n+2) {
+    display: none !important;
+  }
+  
+  /* Sentraliser den ene featured item på iPhone */
+  .featured-grid > *:first-child {
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Tablet - 2 kolonner */
+@media screen and (min-width: 415px) and (max-width: 768px) {
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  /* Vis bare 2 items på tablet */
+  .featured-grid > *:nth-child(n+3) {
+    display: none !important;
+  }
+}
+
+/* Desktop - 4 kolonner (standard) */
+@media screen and (min-width: 769px) {
+  .featured-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  
+  /* Vis alle 4 items på desktop */
+  .featured-grid > * {
+    display: block !important;
+  }
+}
+
+/* iPhone X og nyere (større skjermer) */
+@media screen and (max-width: 414px) and (-webkit-min-device-pixel-ratio: 2) {
+  .featured-grid {
+    padding: 0 1rem;
+  }
+  
+  .featured-grid > *:first-child {
+    width: 100%;
+    max-width: 350px;
+  }
+}
+
+/* Featured section font consistency */
+.featured-grid,
+.featured-grid *,
+.featured-item,
+.featured-item * {
+  font-family: inherit !important;
+  font-weight: 500 !important; /* Konsistent med knappene */
+}
+
+/* Hero section font consistency */
+.hero-section,
+.hero-section *,
+.hero-title,
+.hero-subtitle,
+.hero-description {
+  font-family: inherit !important;
+}
+
+/* Buttons på homepage - samme styling som navbar */
+.homepage-button,
+.cta-button,
+.action-button {
+  font-family: inherit !important;
+  font-weight: 500 !important;
+  font-size: 0.875rem !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 0.375rem !important;
+}
+
+/* Featured items text consistency */
+.featured-item h3,
+.featured-item p,
+.featured-item span {
+  font-family: inherit !important;
+  font-weight: 500 !important;
+}
+
+
+/* ENKEL LIGHT MODE - ERSTATT ALT FRA LINJE 220 */
+
+/* Light mode bakgrunn - enkel og effektiv */
+body.light {
+  background: linear-gradient(135deg, #b615a1 0%, #FFD700 50%, #2e07dd 100%) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+/* Homepage bakgrunn i light mode */
+body.light .homepage-bg {
+  background: linear-gradient(135deg, #1525b6 0%, #9f17ac 50%, #a13b3b 100%) !important;
+  width: 100% !important;
+  min-height: 100vh !important;
+}
+
+/* Tekst farge i light mode */
+body.light {
+  color: #ffffff !important;
+}
+
+body.light * {
+  color: #ffffff !important;
+}
+
+/* Featured items i light mode */
+body.light .featured-item {
+  background: rgb(255, 255, 255) !important;
+  color: #ffffff !important;
+}

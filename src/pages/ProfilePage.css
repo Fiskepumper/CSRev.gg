@@ -1,0 +1,197 @@
+.profile-bg {
+  min-height: 100vh;
+  background: #0a0f1a;
+  color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 60px;
+}
+
+.profile-container {
+  background: #131a26;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px 0 rgba(0,0,0,0.35);
+  padding: 2.5rem 2rem;
+  max-width: 480px;
+  width: 100%;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.profile-avatar {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  border: 3px solid #FFD600;
+  object-fit: cover;
+  background: #222;
+}
+
+.profile-name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.profile-level {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #fbbf24;
+}
+
+.profile-progress-bar {
+  background: #232b3b;
+  border-radius: 0.5rem;
+  height: 10px;
+  width: 180px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.profile-progress {
+  background: linear-gradient(90deg, #FFD600 0%, #fbbf24 100%);
+  height: 100%;
+  border-radius: 0.5rem;
+  transition: width 0.3s;
+}
+
+.profile-next-level {
+  font-size: 0.95rem;
+  color: #a3a3a3;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+.profile-card {
+  background: #181f2e;
+  border-radius: 1rem;
+  padding: 1.2rem 1.5rem;
+  min-width: 120px;
+  text-align: center;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+
+.profile-card-title {
+  font-size: 1rem;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.profile-card-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* Trade Link seksjon */
+.profile-tradelink-section {
+  margin-top: 2.5rem;
+  text-align: left;
+}
+.profile-tradelink-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fbbf24;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.profile-tradelink-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.profile-tradelink-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #232b3b;
+  background: #101624;
+  color: #f3f4f6;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+.profile-tradelink-input:focus {
+  border: 1.5px solid #3b82f6;
+}
+.profile-tradelink-save {
+  background: #FFD600;
+  color: #222;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.profile-tradelink-save:hover {
+  background: #fbbf24;
+}
+
+/* Blå "Find it here"-knapp */
+.profile-tradelink-find {
+  background: none;
+  color: #2563eb;
+  font-weight: 500;
+  font-size: 0.97rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin-left: 0.5rem;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+  box-shadow: none;
+  display: inline;
+}
+.profile-tradelink-find:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.profile-tradelink-saved {
+  color: #22c55e;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.profile-account-status {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  gap: 0.5rem;
+}
+.account-status-indicator {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+}
+.account-status-excellent { background: #22c55e; }
+.account-status-good { background: #3b82f6; }
+.account-status-fair { background: #fbbf24; }
+.account-status-risk { background: #f87171; }
+.account-status-banned { background: #991b1b; }
+.account-status-label {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #f3f4f6;
+}
