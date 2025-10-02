@@ -1,0 +1,128 @@
+.video-section {
+  width: 100%;
+  padding: 3rem 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.homepage-video {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  max-height: 500px;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1/1; /* 1:1 for kvadratisk */
+}
+
+.video-placeholder, .video-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  font-size: 1.1rem;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  pointer-events: none;
+  padding: 0 1rem;
+}
+
+.video-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, #FFD600, #fbbf24);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.video-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  color: #f3f4f6;
+}
+
+/* iPhone og små skjermer */
+@media (max-width: 480px) {
+  .video-section {
+    padding: 2rem 0.5rem 1rem;
+  }
+  
+  .video-container {
+    border-radius: 12px;
+    max-width: 95%;
+  }
+  
+  .homepage-video {
+    aspect-ratio: 16/10; /* Litt høyere for små skjermer */
+  }
+  
+  .video-placeholder, .video-error {
+    min-height: 200px;
+    font-size: 0.9rem;
+  }
+  
+  .video-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .video-subtitle {
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet/mellomstore skjermer */
+@media (max-width: 768px) and (min-width: 481px) {
+  .video-section {
+    padding: 2.5rem 1rem 1.5rem;
+  }
+  
+  .video-container {
+    border-radius: 14px;
+    max-width: 90%;
+  }
+  
+  .video-title {
+    font-size: 2.2rem;
+  }
+  
+  .video-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* Store tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .video-container {
+    max-width: 800px;
+  }
+  
+  .video-title {
+    font-size: 2.3rem;
+  }
+}
